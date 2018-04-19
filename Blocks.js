@@ -1,7 +1,7 @@
 var blockShapes = [
 	{
 		color: 1,
-		shape: 
+		shape: [
 			[
 				[0, 1, 0, 0],
 				[0, 1, 0, 0],
@@ -25,11 +25,12 @@ var blockShapes = [
 			    [0, 0, 0, 0],
 				[1, 1, 1, 1],
 				[0, 0, 0, 0]
-			];
+			]
+		]
 	},
 	{
 		color: 2,
-		shape: 
+		shape: [
 			[
 				[0, 1, 0, 0],
 				[0, 1, 1, 0],
@@ -54,10 +55,11 @@ var blockShapes = [
 				[1, 1, 0, 0],
 				[0, 0, 0, 0]
 			]
-	}
-        {
+		]
+	},
+	{
 		color: 3,
-		shape: 
+		shape: [
 			[
 				[0, 0, 1, 0],
 				[0, 1, 1, 0],
@@ -82,10 +84,11 @@ var blockShapes = [
 				[0, 1, 1, 0],
 				[0, 0, 0, 0]
 			]
-	}
-        {
+		]
+	},
+	{
 		color: 4,
-		shape: 
+		shape: [
 			[
 				[0, 0, 0, 0],
 				[0, 1, 1, 0],
@@ -110,10 +113,11 @@ var blockShapes = [
 				[0, 1, 1, 0],
 				[0, 0, 0, 0]
 			]
-	}
-        {
+		]
+	},
+	{
 		color: 5,
-		shape: 
+		shape: [
 			[
 				[0, 1, 0, 0],
 				[1, 1, 1, 0],
@@ -138,10 +142,11 @@ var blockShapes = [
 				[0, 1, 0, 0],
 				[0, 0, 0, 0]
 			]
-	}
-        {
+		]
+	},
+	{
 		color: 6,
-		shape: 
+		shape: [
 			[
 				[0, 1, 0, 0],
 				[0, 1, 1, 1],
@@ -166,10 +171,11 @@ var blockShapes = [
 				[1, 1, 0, 0],
 				[0, 0, 0, 0]
 			]
-	}
-        {
+		]
+	},
+	{
 		color: 7,
-		shape: 
+		shape: [
 			[
 				[0, 0, 1, 0],
 				[1, 1, 1, 0],
@@ -194,5 +200,37 @@ var blockShapes = [
 				[0, 1, 0, 0],
 				[0, 0, 0, 0]
 			]
+		]
 	}
 ];
+
+var colorValuesInner = [
+	"black",
+	"red",
+	"blue",
+	"cyan",
+	"brown",
+	"gray",
+	"green",
+	"lime"
+];
+
+var colorValuesOuter = [
+	"rgba(40, 40, 40, 1)",
+	"darkred",
+	"darkblue",
+	"darkcyan",
+	"darkgray",
+	"black",
+	"darkgreen",
+	"green"
+];
+
+function drawBox(x, line, colorIndex) {
+	var xStr = "" + x;
+	if (xStr.length < 2) xStr = "0" + xStr;
+	var yStr = "" + line;
+	if (yStr.length < 2) yStr = "0" + yStr;
+	document.getElementById(yStr+xStr).style.backgroundColor = colorValuesInner[colorIndex];
+	document.getElementById(yStr+xStr).style.borderColor = colorValuesOuter[colorIndex];
+}
