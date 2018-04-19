@@ -17,7 +17,7 @@
     margin-left: 40px;
 } 
 
-.helpcontent > p {
+.helpcontent > p  {
 	text-align:center;
     color:black;
     border: 3px solid black;
