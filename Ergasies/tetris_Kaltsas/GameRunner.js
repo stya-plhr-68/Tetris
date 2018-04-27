@@ -1,0 +1,6 @@
+game.initBoard();
+game.putBlockInBoard();
+
+
+
+
