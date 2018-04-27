@@ -1,0 +1,83 @@
+
+<style>
+.right {
+    position: absolute;
+    right: 0px;
+    width: 150px;
+    border: 3px solid Orange;
+    background-color:rgb(240, 240, 240);
+    padding: 10px;
+    top:2%;
+    margin:15px;
+}
+.right1 {
+    position: absolute;
+    right: 0px;
+    width: 150px;
+    border: 3px solid Orange;
+    background-color:rgb(240, 240, 240);
+    padding: 10px;
+    top:10%;
+    margin:15px;
+}
+.right2 {
+    position: absolute;
+    right: 0px;
+    width: 150px;
+    border: 3px solid Orange;
+    background-color:rgb(240, 240, 240);
+    padding: 10px;
+    top:18%;
+    margin:15px;
+}
+.right3 {
+    position: absolute;
+    right: 0px;
+    width: 150px;
+    border: 3px solid Orange;
+    background-color:rgb(240, 240, 240);
+    padding: 10px;
+    top:26%;
+    margin:15px;
+}
+.right4 {
+    position: absolute;
+    right: 0px;
+    width: 150px;
+    border: 3px solid Orange;
+    background-color:rgb(240, 240, 240);
+    padding: 10px;
+    top:34%;
+    margin:15px;
+}
+.left{
+    left: 40px;
+    margin:30px;
+    }
+
+</style>
+
+
+</head>
+<body>
+
+<h1 style="color:Gray;">You entered the Tetris Game!</h1>
+
+
+<video controls loop width="370" height="270" autoplay>
+<source src="welcome.mp4" type="video/mp4">
+</video>
+
+<div class="right">TIME:</div>
+<div1 class="right1">SCORE:</div1>
+<div2 class="right2">HIGH SCORE:</div2>
+<div3 class="right3">LEVEL:</div3>
+<div4 class="right4">NUMBER OF BLOCKS:</div4>
+<div class="left">
+		<button class="btn btn-info animbutton" style= "height:50px;width:100px" onclick="testclick()">Start</button>
+		<button class="btn btn-info animbutton" style= "height:50px;width:100px" onclick="testclick()">Restart</button>
+		<button class="btn btn-info animbutton" style= "height:50px;width:100px" onclick="testclick()">Pause</button>
+                </div>
+
+</body>
+</html>
