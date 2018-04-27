@@ -1,0 +1,81 @@
+<head>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+
+<style>
+.rightContainer {
+	position: absolute;
+	right: 10px;
+	width: 150px;
+	top: 5px;
+}
+
+.rightEntry {
+    border: 3px solid Orange;
+    background-color:rgb(240, 240, 240);
+    padding: 10px;
+    margin:15px 0;
+}
+
+.left{
+    margin:30px 30px 30px 140px;
+}
+
+.grayText {
+	color: Gray;
+}
+
+.animbutton {
+  padding: 5px 5px;
+  font-size: 20px;
+  text-align: center;
+  width: 128px;
+  margin: 0 auto;
+  cursor: pointer;
+  outline: none;
+  color: #ffffff;
+  background-color: #009999;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 9px #006666;
+}
+
+.animbutton:hover {background-color: #003333}
+
+.animbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+</style>
+
+
+</head>
+<body>
+
+<h1 class="grayText">You entered the Tetris Game!</h1>
+
+
+<video controls loop width="370" height="270" autoplay>
+<source src="welcome.mp4" type="video/mp4">
+</video>
+
+<div class="rightContainer">
+	<div id="label0" class="rightEntry">TIME:</div>
+	<div id="label1" class="rightEntry">SCORE:</div>
+	<div id="label2" class="rightEntry">HIGH SCORE:</div>
+	<div id="label3" class="rightEntry">LEVEL:</div>
+	<div id="label4" class="rightEntry">NUMBER OF BLOCKS:</div>
+</div>
+<div class="left">
+	<button class="btn btn-info animbutton" onclick="testclick()">Start</button>
+	<button class="btn btn-info animbutton" onclick="testclick()">Restart</button>
+	<button class="btn btn-info animbutton" onclick="testclick()">Pause</button>
+</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

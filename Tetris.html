@@ -24,19 +24,19 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="gameClicked()">Home</a>
+				<a class="nav-link" href="#" onclick="setVisiblePage(0)">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Forum</a>
+				<a class="nav-link" href="#" onclick="setVisiblePage(1)">Forum</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Options</a>
+				<a class="nav-link" href="#" onclick="setVisiblePage(2)">Options</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Useful links</a>
+				<a class="nav-link" href="#" onclick="setVisiblePage(3)">Versions</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="helpClicked()">Help</a>
+				<a class="nav-link" href="#" onclick="setVisiblePage(4)">Help</a>
 			</li>
 		</ul>
 		</div>
@@ -318,11 +318,50 @@
 					</div>
 				</div>
 				<div class="col">
-					O
+					
 				</div>
 			</div>
 		</div>
 		<button class="btn btn-info" onclick="testclick()">Click me</button>
+		<button class="btn btn-info" onclick="moveDown()">DOWN</button>
+		<button class="btn btn-info" onclick="moveLeft()">LEFT</button>
+		<button class="btn btn-info" onclick="moveRight()">RIGHT</button>
+		<button class="btn btn-info" onclick="changeOrientation()">UP</button>
+		<button class="btn btn-info" onclick="dragDown()">DRAG DOWN</button>
+	</div>
+	
+	<div id="forumpage">
+	</div>
+	
+	<div id="optionspage">
+		<div class="card optionsgroup">
+			<div class="card-body">
+				<h5 class="card-title">Options</h5>
+				<form>
+					<div class="form-group">
+						<label for="blockColors">Tetriminos' colors</label>
+						<select class="form-control" id="blockColors">
+							<option>Dark</option>
+							<option>Light</option>
+							<option>Rich</option>
+							<option>Grayscale</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="soundsVolumeControl">Sounds volume</label>
+						<input type="range" class="custom-range" id="soundsVolumeControl">
+					</div>
+					<div class="form-group">
+						<label for="musicVolumeControl">Music volume</label>
+						<input type="range" class="custom-range" id="musicVolumeControl">
+					</div>
+					<button id="optionsSaveButton" class="btn btn-primary" onclick="saveSettings()">Save</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div id="versionspage">
 	</div>
 	
 	<div id="helppage" class="helpbody">

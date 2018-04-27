@@ -16,3 +16,14 @@
 .invisible {
 	display: none;
 }
+
+.optionsgroup {
+	width: 300px;
+	margin: 10px auto;
+}
+
+#optionsSaveButton {
+	margin: 0 auto;
+	display: block;
+	width: 200px;
+}

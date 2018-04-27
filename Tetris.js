@@ -1,30 +1,22 @@
-function setVisibility(elementId, visible) {
-	if (visible) {
-		document.getElementById(elementId).style.display = "block";
-	} else {
-		document.getElementById(elementId).style.display = "none";
+/*
+	pages: Ένας πίνακας από τα div που είναι οι σελίδες της εφαρμογής
+*/
+var pages = [
+	document.getElementById("gamepage"),
+	document.getElementById("forumpage"),
+	document.getElementById("optionspage"),
+	document.getElementById("versionspage"),
+	document.getElementById("helppage")
+];
+
+/*
+	which: Ένας αριθμός από το 0 έως το μέγεθος του πίνακα pages
+*/
+function setVisiblePage(which) {
+	for (var i = 0; i < pages.length; i++) {
+		pages[i].style.display = "none";
 	}
-}
-
-function toggleVisibility(elementId) {
-    var x = document.getElementById(elementId);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function helpClicked() {
-	console.log("help clicked");
-	setVisibility("gamepage", false);
-	setVisibility("helppage", true);
-}
-
-function gameClicked() {
-	console.log("help clicked");
-	setVisibility("gamepage", true);
-	setVisibility("helppage", false);
+	pages[which].style.display = "block";
 }
 
 function testclick() {
@@ -41,6 +33,39 @@ function testclick() {
 	game.putBlockInBoard();
 }
 
-gameClicked();
+function printBoard() {
+	var str = ""
+	for (var i = 0; i < 22; i++) {			
+			for (var j = 0; j < 10; j++) {
+				str = str + " " + this.game.board[i][j];
+			}			
+			str = str + "\n";
+	}
+	return str;
+}
 
+function moveDown() {		
+	game.moveBlockAt(0,1);	
+	console.log(printBoard());
+}
+function moveRight() {	
+	game.moveBlockAt(1,0);	
+	console.log( printBoard() );
+}
+function moveLeft() {	
+	game.moveBlockAt(-1,0);
+	console.log(printBoard());
+}
+function changeOrientation(){	
+	game.rotateBlock();
+	console.log(printBoard());	
+}
+
+function dragDown(){
+	game.moveBlockToBottom();
+	console.log(printBoard());
+}
+
+
+setVisiblePage(0);
 

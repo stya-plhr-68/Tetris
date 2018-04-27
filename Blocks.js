@@ -90,27 +90,27 @@ var blockShapes = [
 		color: 4,
 		shape: [
 			[
+				[0, 1, 1, 0],
+				[0, 1, 1, 0],
 				[0, 0, 0, 0],
-				[0, 1, 1, 0],
-				[0, 1, 1, 0],
 				[0, 0, 0, 0]
 			],
 			[
+				[0, 1, 1, 0],
+				[0, 1, 1, 0],
 				[0, 0, 0, 0],
-				[0, 1, 1, 0],
-				[0, 1, 1, 0],
 				[0, 0, 0, 0]
 			],
 			[
+				[0, 1, 1, 0],
+				[0, 1, 1, 0],
 				[0, 0, 0, 0],
-				[0, 1, 1, 0],
-				[0, 1, 1, 0],
 				[0, 0, 0, 0]
 			],
 			[
+				[0, 1, 1, 0],
+				[0, 1, 1, 0],
 				[0, 0, 0, 0],
-				[0, 1, 1, 0],
-				[0, 1, 1, 0],
 				[0, 0, 0, 0]
 			]
 		]
@@ -231,6 +231,14 @@ function drawBox(x, line, colorIndex) {
 	if (xStr.length < 2) xStr = "0" + xStr;
 	var yStr = "" + line;
 	if (yStr.length < 2) yStr = "0" + yStr;
-	document.getElementById(yStr+xStr).style.backgroundColor = colorValuesInner[colorIndex];
+	try{
+		document.getElementById(yStr+xStr).style.backgroundColor = colorValuesInner[colorIndex];
+		document.getElementById(yStr+xStr).style.borderColor = colorValuesOuter[colorIndex];
+		return true;
+	}
+	catch(err)
+	{
+		return false;
+	}	
 	document.getElementById(yStr+xStr).style.borderColor = colorValuesOuter[colorIndex];
 }

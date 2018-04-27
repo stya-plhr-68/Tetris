@@ -1,0 +1,50 @@
+<html>
+<head>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+		}
+		.AClass {
+			background-color: red;
+		}
+		.BClass {
+			background-color: green;
+		}
+		.CClass {
+			background-color: blue;
+		}
+	</style>
+	<script>
+		function btnclicked(w) {
+			var a = document.getElementById("divA");
+			var b = document.getElementById("divB");
+			var c = document.getElementById("divC");
+			if (w === 0) {
+				a.style.display = "inline-block";
+				b.style.display = "none";
+				c.style.display = "none";
+			} else if (w === 1) {
+				a.style.display = "none";
+				b.style.display = "inline-block";
+				c.style.display = "none";
+			} else if (w === 2) {
+				a.style.display = "none";
+				b.style.display = "none";
+				c.style.display = "inline-block";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="divA" class="box AClass">This is</div>
+	<div id="divB" class="box BClass">a big</div>
+	<div id="divC" class="box CClass">div.</div>
+	<div>
+		<button onclick="btnclicked(0)">A</button>
+		<button onclick="btnclicked(1)">B</button>
+		<button onclick="btnclicked(2)">C</button>
+	</div>
+</body>
+</html>
