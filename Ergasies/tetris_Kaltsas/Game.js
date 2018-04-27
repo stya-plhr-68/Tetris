@@ -2,9 +2,10 @@ var game = {
 	board: [],
 	movingBlock: {
 		orientation: 1,  /* 1, 2, 3, 4 */
-		template: 1,     /* Type of tetrinimo. */
-		posX: 5,         /*  Position on x axis */
-		line: 2
+		template: 3,     /* Type of tetrinimo. */
+		posX: 4,         /*  Position on x axis */
+		line: 2,
+		playable: true
 	},
 	/* Initialiazes the games board. */
 	initBoard: function() {
@@ -17,6 +18,16 @@ var game = {
 			}
 			this.board.push(line);
 		}
+	},
+	
+	/* Generate a new Random Block. */
+	generateNewBlock: function() {
+		var randomTemplate = Math.floor(Math.random()) * 7;
+		this.movingBlock.orientation = 1;
+		this.movingBlock.template = randomTemplate;		
+		this.movingBlock.posX = 4;
+		this.movingBlock.line = 2;
+		this.movingBlock.playable = true;
 	},
 	
 	/* Draws the block( 5x5 ) into the board. */
@@ -53,94 +64,142 @@ var game = {
 	blockCanBePlacedAt: function() {
 		console.log("blockCanBePlacedAt called");		
 		var shape = blockShapes[this.movingBlock.template].shape[this.movingBlock.orientation-1];		
-		for (var x = 0; x < 4; x++) 
+		for (var x = -1; x < 4; x++) 
 		{
 			for (var y = 0; y < 4; y++)
 			{
-				if(x + this.movingBlock.posX > 10 || x + this.movingBlock.posX < -1 || y + this.movingBlock.line > 22)
+				/* Borders */
+				if(x + this.movingBlock.posX == 10 && shape[y][x] == 1)
 					return false;
-				console.log(shape[y][x] == 1 && shape[y][x] == this.board[y + this.movingBlock.line][x + this.movingBlock.posX]);
-				if(shape[y][x] == 1 && shape[y][x] == this.board[y + this.movingBlock.line][x + this.movingBlock.posX])
+				if(x + this.movingBlock.posX == -1 && shape[y][x] == 1)
+					return false;
+				if(y + this.movingBlock.line == 22 && shape[y][x] == 1)
+					return false;
+				if(x > 0 && y + this.movingBlock.line < 22)
 				{
-					console.log("called");
-					return false;
+					if(this.board[y + this.movingBlock.line][x + this.movingBlock.posX] == 1 && shape[y][x] == 1)
+						return false;
 				}
-			}
+			}				
 		}
 		return true;
 	},
 	
 	/* Move the block x axis ( x ) and y axis ( line ) */
-	moveBlockAt: function(x, line) {
+	moveBlockAt: function(deltaX, deltaLine) {
 		console.log("moveBlockAt called");	
-		this.movingBlock.posX += x;
-		this.movingBlock.line += line;	
+		var tmp_posX = this.movingBlock.posX;
+		var tmp_line = this.movingBlock.line;
+		this.removeBlockFromBoard();
+		this.movingBlock.posX += deltaX;
+		this.movingBlock.line += deltaLine;	
 		if(this.blockCanBePlacedAt() == true)
-		{			
-			return 1;
+		{		
+			this.putBlockInBoard();	
+			return true;
 		}		
 		else
 		{
-			this.movingBlock.posX -= x;
-			this.movingBlock.line -= line;	
+			this.movingBlock.posX = tmp_posX;
+			this.movingBlock.line = tmp_line;
+			this.putBlockInBoard();
+			return false;
 		}
 		console.log("moveBlockAt called");
-		return -1;		
+				
 	},
 	
 	/* Instantly places the block at the end of its course. */
-	moveBlockToBottom: function() {
-		
+	moveBlockToBottom: function() {		
 		console.log("moveBlockToBottom called");
+		this.removeBlockFromBoard();
 		while(this.blockCanBePlacedAt() == true)
 		{
 			this.movingBlock.line++;
 		}		
+		this.movingBlock.line--;
 		this.putBlockInBoard();		
 	},
 	
 	/* Changes the orientaion of the block. */
 	rotateBlock: function() {
 		console.log("rotateBlock called");
-		if(this.blockCanBeRotated() == true) {			
-			console.log(this.movingBlock.orientation);
-			if(this.movingBlock.orientation == 4)
-			{
-				this.movingBlock.orientation = 1;
-				return;
-			}
-			
-			
-			this.movingBlock.orientation++;
-		}
+		var tmp = this.movingBlock.orientation;
+		this.removeBlockFromBoard();
+		this.movingBlock.orientation++;
+		
+		if(this.movingBlock.orientation == 5)
+			this.movingBlock.orientation = 1;
+		
+		console.log(this.blockCanBePlacedAt());
+		if( this.blockCanBePlacedAt() == false ) {			
+			this.movingBlock.orientation = tmp;
+			this.putBlockInBoard();
+			return false;;
+		}		
+		this.putBlockInBoard();
+		return true;		
+		
 	},
 	
-	/* Checks to see if the moving block can be rotated. */
-	blockCanBeRotated: function() {
-		this.movingBlock.orientaion++;		
-		var shape = blockShapes[this.movingBlock.template].shape[this.movingBlock.orientation-1];		
-		for (var x = 0; x < 4; x++) 
+	/* Checks if the moving block is still playable. */
+	isPlayable: function() {
+		if ( !this.moveBlockAt(-1, 0) && !this.moveBlockAt(1, 0) && !this.moveBlockAt(0, 1))
+			return false;
+		else if( !this.rotateBlock() )
+			return false;
+		else
+			return true;
+	},
+		
+	/* Waits for the next move */
+	runGame: function() {
+		console.log("runGame called");
+		while(true)
 		{
-			for (var y = 0; y < 4; y++)
-			{
-				if(x + this.movingBlock.posX > 10 || x + this.movingBlock.posX < -1 || y + this.movingBlock.line > 21)
-				{
-					this.movingBlock.orientaion--;
-					return false;
-				}
-					
-				console.log(shape[y][x] == 1 && shape[y][x] == this.board[y + this.movingBlock.line][x + this.movingBlock.posX]);
-				if(shape[y][x] == 1 && shape[y][x] == this.board[y + this.movingBlock.line][x + this.movingBlock.posX])
-				{
-					console.log("called");
-					this.movingBlock.orientaion--;
-					return false;
-				}
-			}
-		}
-		this.movingBlock.orientaion--;
-		return true;
+			window.setTimeout(this.defaultMove(), 1000);
+		}			
+		
 	},
 	
+	/* Executes a function, after waiting a specified number of milliseconds. */
+	askMove: function() {
+		console.log("askMove called");
+		document.addEventListener('keydown', function(event) {
+		if (event.keyCode == 37) {      /*	LEFT ARROW	*/
+			//
+			moveLeft();
+		}
+		else if (event.keyCode == 39) { /*	RIGHT ARROW	*/
+			//
+			moveRight();
+		}
+		else if (event.keyCode == 38) { /*	UP ARROW	*/
+			//
+			changeOrientation();
+		}
+		else if (event.keyCode == 40) { /*	DOWN ARROW	*/
+			//
+			moveDown();
+		}
+		else if (event.keyCode == 13) { /* 	ENTER 		*/
+			//
+			dragDown();	
+		}		
+		else if (event.keyCode == 27) { /*	ESCAPE  	*/
+			//
+			//pauseGame();
+		}
+		
+		
+		/*=============================*/
+	}, true);
 	
+	},
+	
+	defaultMove: function() {
+		moveDown();
+		this.isPlayable();
+	}
+		
 }
