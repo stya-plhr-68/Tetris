@@ -1,0 +1,63 @@
+.gameboard {
+	width: 242px;
+	margin: 0 auto;
+	border: 1px solid darkblue;
+	background-color: black;
+}
+
+.emptyblock {
+	height: 24px;
+	background-color: magenta;
+	border: 1px solid rgba(230, 230, 230, 1);
+	padding: 0;
+	border-radius: 3px;
+}
+
+.invisible {
+	display: none;
+}
+.ib {
+	display: inline-block;
+}
+.animbutton {
+  padding: 5px 5px;
+  font-size: 20px;
+  text-align: center;
+  width: 128px;
+  margin: 0 auto;
+  cursor: pointer;
+  outline: none;
+  color: #ffffff;
+  background-color: #009999;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 9px #006666;
+}
+
+.animbutton:hover {background-color: #003333}
+
+.animbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.audio {
+	width: 242px;
+	margin-left:auto;
+        margin-right:auto
+	border: 1px solid darkblue;
+	background-color: black;
+}
+.audiobtn {
+    background-color: Black;
+    border: none;
+    color: white;
+    padding: 4px 6px;
+    font-size: 26px;
+    cursor: pointer;
+    margin: 0 auto;
+    
+}
+.audiobtn:hover {
+    background-color: blue;
+}
