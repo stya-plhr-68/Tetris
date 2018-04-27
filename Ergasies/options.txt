@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<form action =" "method" ">
+<label for="ROTATE RIGHT"> ROTATE RIGHT:</label>
+<input type="text" id="ROTATE RIGHT" name="">
+</br>
+<form action =" "method" ">
+<label for="ROTATE LEFT"> ROTATE LEFT:</label>
+<input type="text" id="ROTATE LEFT" name="">
+</br>
+<form action =" "method" ">
+<label for="MOVE RIGHT"> MOVE RIGHT:</label>
+<input type="text" id="MOVE RIGHT" name="">
+</br>
+<form action =" "method" ">
+<label for="MOVE LEFT"> MOVE LEFT:</label>
+<input type="text" id="MOVE LEFT" name="">
+</br>
+<form action =" "method" ">
+<label for="SOFT DROP"> SOFT DROP:</label>
+<input type="text" id="SOFT DROP" name="">
+</br>
+<form action =" "method" ">
+<label for="HARD DROP"> HARD DROP:</label>
+<input type="text" id="HARD DROP" name="">
+</br>
+<div class="container">
+  
+  <div class="btn-group">
+<label for="SOUND"> SOUND:</label>
+    <button type="button" class="btn btn-primary">+</button>
+    <label for="100%"> 100%</label>
+    <button type="button" class="btn btn-primary">-</button>
+    
+  </div>
+</div>
+<label for="MUSIC"> MUSIC:</label>
+    <button type="button" class="btn btn-primary">+</button>
+    <label for="100%"> 100%</label>
+    <button type="button" class="btn btn-primary">-</button>
+    
+  </div>
+</div>
+</br>
+</br>
+</div>
+
+    <button type="button" class="btn btn-primary">RESET</button>
+    <button type="button" class="btn btn-primary">DONE</button>
+    <button type="button" class="btn btn-primary">EXIT</button>
+  </div>
+</div>
+
+
+
+</body>
+</html>
