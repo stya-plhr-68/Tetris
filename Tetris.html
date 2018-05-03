@@ -2,12 +2,17 @@
 <html>
 
 <head>
-
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
 	<title>STYA Tetris</title>
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="Help.css">
 	<link rel="stylesheet" type="text/css" href="Tetris.css">
+	<link rel="stylesheet" type="text/css" href="version.css">
 </head>
 
 <body>
@@ -24,20 +29,23 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="setVisiblePage(0)">Home</a>
+				<a class="nav-link" href="#" onclick="gameClicked()">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="setVisiblePage(1)">Forum</a>
+				<a class="nav-link" href="#">Forum</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="setVisiblePage(2)">Options</a>
+				<a class="nav-link" href="#">Options</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="setVisiblePage(3)">Versions</a>
+				<a class="nav-link" href="#" onclick="versionClicked()">Versions</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="setVisiblePage(4)">Help</a>
+				<a class="nav-link" href="#" onclick="helpClicked()">Help</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">About</a>
+			</li> 
 		</ul>
 		</div>
 	</nav>
@@ -318,50 +326,11 @@
 					</div>
 				</div>
 				<div class="col">
-					
+					O
 				</div>
 			</div>
 		</div>
 		<button class="btn btn-info" onclick="testclick()">Click me</button>
-		<button class="btn btn-info" onclick="moveDown()">DOWN</button>
-		<button class="btn btn-info" onclick="moveLeft()">LEFT</button>
-		<button class="btn btn-info" onclick="moveRight()">RIGHT</button>
-		<button class="btn btn-info" onclick="changeOrientation()">UP</button>
-		<button class="btn btn-info" onclick="dragDown()">DRAG DOWN</button>
-	</div>
-	
-	<div id="forumpage">
-	</div>
-	
-	<div id="optionspage">
-		<div class="card optionsgroup">
-			<div class="card-body">
-				<h5 class="card-title">Options</h5>
-				<form>
-					<div class="form-group">
-						<label for="blockColors">Tetriminos' colors</label>
-						<select class="form-control" id="blockColors">
-							<option>Dark</option>
-							<option>Light</option>
-							<option>Rich</option>
-							<option>Grayscale</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="soundsVolumeControl">Sounds volume</label>
-						<input type="range" class="custom-range" id="soundsVolumeControl">
-					</div>
-					<div class="form-group">
-						<label for="musicVolumeControl">Music volume</label>
-						<input type="range" class="custom-range" id="musicVolumeControl">
-					</div>
-					<button id="optionsSaveButton" class="btn btn-primary" onclick="saveSettings()">Save</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	<div id="versionspage">
 	</div>
 	
 	<div id="helppage" class="helpbody">
@@ -397,6 +366,481 @@
 			 your goal is to move and spin them so that they line up evenly at the bottom of the Matrix. To clear a line, every square of the row has to be filled.<br/>
 			Tip: Fill in multiple lines at once for bonus points. Drop Tetriminos so that there is a gap at least two squares deep, then drop a J-Tetrimino or L-Tetrimino to clear two lines at once, for example.</b></p>
 		</div>
+	</div>
+	<div id="versionpage" class="versionbody">
+	
+    <h1>List of Tetris variants<hr></h1>
+<p><b>This is a list of variants of the game Tetris. It includes officially licensed Tetris sequels, as well as unofficial clones.</p>
+<table width="945">
+ <table >
+	<tr>
+	     <th>Title</th>
+	     <th>Year</th>
+	     <th>Platform</th>
+	     <th>Publisher</th>
+	     <th>Description</th>
+	</tr>
+    <tr>
+	     <td><a href="https://en.wikipedia.org/wiki/Welltris">Weltris</a></td>
+	     <td>1989</td>
+	     <td>PC</td>
+	     <td>Spectrum</br> HoloByte</td>
+         <td>Designed by Alexey Pajitnov and developed by Doka. Pieces (including tetrominoes and occasionally                pentominoes) slide down one of four wall surfaces in a well, the "well" being an 8x8 square. When a              piece lands while fully or partially sticking outside of the well, the wall is temporarily blocked.              The game ends when four walls are no longer accessible. Other versions:
+         <ul>
+              <li>Amiga, Mac OS (1990, Infogrames [Europe], Spectrum HoloByte [US])</li>
+              <li>ZX Spectrum, CPC, C64 (1991, Infogrames)</li>
+              <li>Arcade (1991, Video System)</li>
+       </ul>
+  </tr>
+  <tr>
+         <td><a href="https://en.wikipedia.org/wiki/Hatris">Hatris</a></td>
+         <td>1990</td>
+         <td>NES, Game Boy</td>
+           <td>Bullet Proof Software</td>
+          <td>Designed by Alexey Pajitnov. A variety of hats must be made to fall into stacks of five identical hats. Other versions:
+            <ul>
+                     <li>Arcade (1990, Video System)</li>
+                     <li>PC-Engine (1991, Microcabin)</li>
+             <ul></td>
+   </tr>
+   <tr>
+             <td>Faces... Tris III</td>
+             <td>1991</td>
+             <td>Amiga,MS-DOS</td>
+             <td>Spectrum HoloByte</td>
+             <td>Winner of the 1991 Software Publishing Association            Excellence in Software Award for Best Action/Arcade Program.[2] Alexey Pajitnov's fourth and final official game in the "Tris" series. Developed by Sphere, Inc.</br>
+</br>The player must arrange falling pieces to form a complete face, which include famous historical figures. Features 10 themed difficulty levels and a head-to-head mode.</td>
+</tr>
+<tr>
+             <td>Super Tetris</td>
+             <td>1991</td>
+             <td>MS-DOS,Amiga,Mac OS</td>
+             <td>Spectrum HoloByte</td>
+             <td>Developed by Sphere, Inc. Added bombs, new special block types, and two-player co-operative and competitive modes.Bombs appear in some blocks, which explode when the row is filled and removed.</td>
+</tr>
+<tr>
+             <td>Tetris 2 & Bombliss</td>
+             <td>1991</td>
+             <td>Famicom</td>
+             <td>Bullet-Proof Software</td>
+             <td>One mode, "Bombliss", features bomb blocks that destroy surrounding blocks when a line is completed. Bombliss uses the gravity algorithm to re-arrange the stage after an explosion has destroyed some blocks. A "Tetris C" mode automatically raises the playfield one level after a certain number of blocks are used.</br>
+</br>Other versions:
+                <ul>
+                      <li>Super Tetris 2 & Bombliss (1992, Super Famicom, Bullet Proof Software)</li>
+                      <li>Super Tetris 2 & Bombliss Limited (1994, Super Famicom, Bullet Proof Software)</li>
+                      <li>All Japan Super Bombliss Cup '95 (1995, Super Famicom, Bullet Proof Software)</li>
+                      <li>Satellaview (1995, Blue Planet Software)</i>
+                 </ul></td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_2_(1993_video_game)">Tetris 2</a></td>
+             <td>1993</td>
+             <td>NES and Game Boy</td>
+             <td>Nintendo</td>
+             <td>Uses disconnected colored tetrominos instead of adjacent type tetrominoes, the goal of Tetris 2 is to clear all the bombs by making the blocks of the same color stick together. Released as Tetris Flash in Japan. Other Versions:
+             <ul>
+                  <li>Super NES (1994, Nintendo)</li>
+             </ul></td>
+</tr>             
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Battle_Gaiden">Tetris Battle Gaiden</a> </td>
+             <td>1993</td>
+             <td>Super Famicom</td>
+             <td>Bullet-Proof Software</td>
+             <td>Similar to Puyo Puyo in use of competitive mode, characters, and humorous storyline. Different characters can also unleash special moves that affect the opponent in some way. Also includes a Rensa mode, in which gravity takes a bigger part. Came to the attention of European gamers by way of a review in Issue 18 (April 1994) of Super Play magazine.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Dr._Mario#Re-releases">Tetris & Dr. Mario</a> </td>
+             <td>1994</td>
+             <td>Super NES</td>
+             <td>Nintendo</td>
+             <td>Compilation of Tetris and Dr. Mario with enhanced graphics and sound.</td>
+</tr>
+<tr>
+             <td>Super Tetris 3</td>
+             <td>1994</td>
+             <td>Super Famicom</td>
+             <td>Blue Planet Software</td>
+             <td><ul>
+                       <li>Sparkliss is similar to Bombliss, but the bombs have orthogonal explosions. Some blocks need to be hit more than once by explosions before they are destroyed.</li>
+                       <li>Magicaliss has pieces that may also be one of four colors. Making a full line with one color destroys all the blocks of that color in the stage. The remaining blocks fall in place.</li>
+                       <li>Familiss is a four-player multiplayer Tetris.</li></td>
+</tr>
+<tr>
+             <td>V-Tetris</td>
+             <td>1995</td>
+             <td>Virtual Boy</td>
+             <td>Bullet Proof</td>
+             <td>V-Tetris (Ｖ－テトリス V-Tetorisu) is Japanese-exclusive. It is not to be confused with the similar Virtual Boy title 3D Tetris, as the two games are entirely different. V-Tetris is mostly the same as the original Tetris games, the only difference being the cylindrical puzzle mode in which blocks could be placed in a 3-D spiral. By using the L and R buttons, or the right D-pad, the screen shifts a block left or right respectively.</td>
+</tr>
+<tr>
+             <td>Tetris II</td>
+             <td>1996</td>
+             <td>MSX2, MSX2+, MSX turbo R</td>
+             <td>Renegade, Artic Soft, MicroTec</td>
+             <td> </td>
+</tr>
+<tr>
+             <td>Tetris Blast</td>
+             <td>1996</td>
+             <td>Game Boy</td>
+             <td>Nintendo / Bullet Proof</td>
+             <td>Known in Japan as Super Bombliss, Tetris Blast was developed by Bulletproof, and published by Nintendo.It was released for the Game Boy in Japan on March 17, 1995, in North America on January 1996. It is the same as the Bombliss mode in Super Tetris 2 & Bombliss. In an added "Fight" mode, there are creatures that traverse the constantly changing 'terrain' of the play field and try to hinder the player from clearing the screen of blocks. Players can battle others by using a link cable.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Attack">Tetris Attack</a></td>
+             <td>1996</td>
+             <td>Super NES and Game Boy</td>
+             <td>Nintendo, Intelligent Systems</td>
+             <td>A version of the Japanese game Panel de Pon with redone art made to resemble Super Mario World 2: Yoshi's Island. Has no relation to Tetris other than name and genre. Also spawned Pokémon Puzzle League for the N64, Pokémon Puzzle Challenge for the Game Boy Color, Puzzle League for the Game Boy Advance, and Planet Puzzle League for the Nintendo DS.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Attack">Tetris Attack</a></td>
+             <td>1996</td>
+             <td>Super NES and Game Boy</td>
+             <td>Nintendo, Intelligent Systems</td>
+             <td>A version of the Japanese game Panel de Pon with redone art made to resemble Super Mario World 2: Yoshi's Island. Has no relation to Tetris other than name and genre. Also spawned Pokémon Puzzle League for the N64, Pokémon Puzzle Challenge for the Game Boy Color, Puzzle League for the Game Boy Advance, and Planet Puzzle League for the Nintendo DS.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/3D_Tetris">3D Tetris</a></td>
+             <td>1996</td>
+             <td>Virtual Boy</td>
+             <td>Nintendo</td>
+             <td>Released only in the United States. Different from the version (V-Tetris) released in Japan.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Plus">Tetris Plus</a></td>
+             <td>1996 1997 1998</td>
+             <td>Arcade, 
+             PlayStation, Saturn,
+Game Boy</td>
+             <td>Jaleco
+Jaleco
+Nintendo</td>
+             <td>Added to the classic Tetris is the new Puzzle Mode. Each level begins with a character (the professor) standing on a different pattern of blocks. This is somewhat is similar to Welltris The goal is to clear the blocks out from under him to get him to the bottom. He climbs to the top of the blocks you're stacking up and the game ends when the professor and the descending spiked ceiling collide.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Plus#Sequel">Tetris Plus 2</a></td>
+             <td>1997</td>
+             <td>Arcade</td>
+             <td>Jaleco</td>
+             <td>This version is an improved version of Tetris Plus.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetrisphere">Tetrisphere</a></td>
+             <td>1997</td>
+             <td>Nintendo 64</td>
+             <td>Nintendo</td>
+             <td>Uses some of the tetrominoes (as well as two 3-block piece) with different gameplay than standard Tetris. The object of the game is to reveal the core in the center of the sphere (which is actually a torus as seen through a fisheye perspective). To achieve this, you need to stack similarly shaped pieces on top of each other. Once three are stacked, the pieces disappear and reveal the layer below. If the player doesn't clear blocks fast enough they lose one life, and if they lose three, the game is over. Wild card pieces, power-ups and a limited ability to slide pieces over the surface of the sphere all help with this task.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_(Game_Boy)#Tetris_DX">Tetris DX</a></td>
+             <td>1998</td>
+             <td>Game Boy Color</td>
+             <td>Nintendo</td>
+             <td>The Game Boy version of Tetris updated for the Game Boy Color.</td>
+</tr>
+<tr>
+             <td>Tetris 4D</td>
+             <td>1998</td>
+             <td>Dreamcast</td>
+             <td>Blue Planet Software</td>
+             <td></td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_64">Tetris 64</a></td>
+             <td>1998</td>
+             <td>Nintendo 64</td>
+             <td>Seta Corporation</td>
+             <td>Includes Normal Tetris, Giga Tetris that has tetriminoes of different sizes, and Bio Tetris that adjusts itself based on feedback from a heartbeat measuring clip that attaches to the user's ear.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris:_The_Grand_Master">Tetris: The Grand Master</a></td>
+             <td>1998</td>
+             <td>Arcade</td>
+             <td>Arica/Capcom</td>
+             <td>Released in Japan, designed for seasoned and skilled Tetris players. At higher levels, tetriminoes begin to drop so fast that they appear immediately at the bottom, with no airborne phase at all; Players only have a split-second to slide the block into designated locations before they lock down. This distinctive style is called "20G". Subsequent entries in the Grand Master series continued the high-speed trend.</td>
+</tr>
+<tr>
+             <td>Kids Tetris</td>
+             <td>1999</td>
+             <td>PC</td>
+             <td>Hasbro Interactive</td>
+             <td>Tetrominoes start out with two blocks and increase with further lines. Circus, Firehouse, Haunted House and Laboratory stages have different graphical effects with each cleared level. Includes printing option.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/The_New_Tetris">The New Tetris</a></td>
+             <td>1999</td>
+             <td>Nintendo 64</td>
+             <td>Nintendo</td>
+             <td>Tetris with a new feature: when a 16-block (4 by 4) square is made, the tetrominos used to form the square are merged as 16-block squares. A square formed using different types of tetrominos is called a combo square or multisquare, and it appears silver. A square formed using four of the same piece is called a pure square or monosquare, and it appears gold. All pieces but the S and Z can form monosquares.</td>
+</tr>
+<tr>
+             <td>The Next Tetris</td>
+             <td>1999 2000 2001</td>
+             <td>Playstasion, PC
+             Dreamcast,
+             Nuon</td>
+             <td>Hasbro Interactive
+Crave Entertainment</td>
+             <td>The Next Tetris was a version of the game with an emphasis on the cascade mode.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Magical_Tetris_Challenge">Magical Tetris Challenge</a></td>
+             <td>1999 2000</td>
+             <td>Nintendo 64, PlayStation
+Game Boy Colorn</td>
+             <td>Capcom
+Activision
+SCEE</td>
+             <td>Story mode with Disney characters. The game implements a new Tetris deviation of combos, where consecutive cleared lines give those clears greater value. Non-story variations include magical, updown, and endless mode with other mdes which can be unlocked in the story mode.</td>
+</tr>
+<tr>
+             <td>Sega Tetris</td>
+             <td>2000</td>
+             <td>Dreamcast</td>
+             <td>WOW Entertainment</td>
+             <td></td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris:_The_Grand_Master">Tetris: The Absolute - The Grand Master 2</a></td>
+             <td>2000</td>
+             <td>Arcade</td>
+             <td>Arika / Psikyo</td>
+             <td>Sequel to Tetris: The Grand Master, featured faster gameplay than its predecessor. A later upgrade, Tetris: The Absolute - The Grand Master 2 Plus, featured several new modes including the "Death Mode" where tetriminoes fall furiously fast right from the beginning.</td>
+</tr>
+<tr>
+             <td>Tetris With Cardcaptor Sakura: Eternal Heart</td>
+             <td>2000</td>
+             <td>PlayStation</td>
+             <td>Arika</td>
+             <td>Released in Russia, a Cardcaptor Sakura-themed Tetris game. It presents puzzles in which the player (as Sakura Kinomoto) has to transform the Clow Cards into Sakura Cards by defeating Eriol's Tetris style Puzzles. The game also features player vs CPU and contains hidden extras based on the anime series.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Worlds">Tetris Worlds</a></td>
+             <td>2001</td>
+             <td>PC</td>
+             <td>THQ</td>
+             <td>Includes Tetris, Square Tetris, Cascade Tetris, Sticky Tetris (originally in The New Tetris), Hot-Line Tetris, and Fusion Tetris.</br>
+</br>Other versions:
+                       <ul>
+                           <li>PS2 (2002, Blue Planet Software)</li>
+                           <li>Nintendo GameCube and Xbox (2002, Radical Ent.)</li>
+                           <li>Game Boy Advance (2002, 3d6 Games)</li></td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Pokémon_Mini#List_of_games">Pokémon Tetris</a></td>
+             <td>2002</td>
+             <td>Pokémon mini</td>
+             <td></td>
+             <td>Released only in Japan and Europe, a tiny keychain Tetris game with a Pokémon theme.</td>
+</tr>
+<tr>
+             <td>Tetris Elements</td>
+             <td>2004</td>
+             <td>Windows, Mac OS</td>
+             <td>ImaginEngine</td>
+             <td>Includes classic Tetris and five variations: Stratosphere, which features meteors that can either help or hurt in eliminating rows; Earthquake, where tremors shake the falling shapes and move them around; Tempest, a double Tetris game where players are switched back and forth between screens; Ice, which has falling icicles that will knock into the falling shapes and make them crash down; and Fire, where heat can cause a chain reaction and melt multiple rows.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris:_The_Grand_Master">Tetris: The Grand Master 3 - Terror Instinct</a></td>
+             <td>2005</td>
+             <td>Arcade</td>
+             <td>Arika / Taito</td>
+             <td>Sequel to Tetris: The Absolute - The Grand Master 2 Plus with several changes in game mechanics and a "Shirase" mode, analogous to Death Mode but with a drastic speed increase.</td>
+</tr>
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris:_The_Grand_Master">Tetris: The Grand Master Ace</a></td>
+             <td>2005</td>
+             <td>Xbox 360</td>
+             <td>Arika / AQ Entertainment</td>
+             <td>First console version in the Grand Master series, one of the launch titles for the Japanese launch of the Xbox 360.</td>
+</tr>
+
+<tr>
+             <td>Tetris Mania</td>
+             <td>2006</td>
+             <td>Mobile Phones</td>
+             <td>Electronic Arts</td>
+             <td>Cascade Tetris, Sticky Tetris and Fusion Tetris, all previously in Tetris Worlds.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_DS">Tetris DS</a></td>
+             <td>2006</td>
+             <td>Nintendo DS</td>
+             <td>Nintendo</td>
+             <td>First version for Nintendo DS. Includes local multiplayer and online multiplayer support. All based around the NES era of games.</td>
+</tr>
+
+<tr>
+             <td>iPod Tetris</td>
+             <td>2006</td>
+             <td>iPod</td>
+             <td>Electronic Arts</td>
+             <td> </td>
+</tr>
+
+<tr>
+             <td>Tetris Evolution</td>
+             <td>2007</td>
+             <td>Xbox 360</td>
+             <td>THQ</td>
+             <td>First seventh generation Tetris game to be released in the United States. Includes play over Xbox Live.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Zone">Tetris Zone</a></td>
+             <td>2007</td>
+             <td>Windows and Mac OS</td>
+             <td>Blue Planet Software</td>
+             <td>Features four game modes and the Combo system. Includes online Leaderboards and game playback.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Splash">Tetris Splash</a></td>
+             <td>2007</td>
+             <td>Xbox 360</td>
+             <td>Tetris Online</td>
+             <td>First Xbox Live Arcade title for Tetris. It is also the first game published under The Tetris Company's new third party Tetris Online.</td>
+</tr>
+
+<tr>
+             <td>Tetris Online Japan</td>
+             <td>2007</td>
+             <td>PC</td>
+             <td>GungHo Online Entertainment</td>
+             <td>Official online game for Japanese region.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Friends">Tetris Friends</a></td>
+             <td>2008</td>
+             <td>Facebook</td>
+             <td>Tetris Online</td>
+             <td>Features ten game modes, including Marathon, Ultra, Sprint, N-Blox, Sprint 5-Player, 1989, Survival, Battle 2-Player, Battle 6-Player, and Rally 8-Player. Leaderboards can be based on Facebook friends, encouraging the "friends" aspect.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Party">Tetris Party</a></td>
+             <td>2008</td>
+             <td>Wii</td>
+             <td>Tetris Online / Hudson Soft</td>
+             <td>A WiiWare title released on 20 October 2008; there are 18 modes, including one which involves building a tower that a tiny person on the stack can climb, and one using the Wii Balance Board.</td>
+</tr>
+
+<tr>
+             <td>Tetris Pop</td>
+             <td>2008</td>
+             <td>Mobile</td>
+             <td>Electronic Arts Mobile</td>
+             <td>Features 17 mini-variations, including Ball, Circuit, Erosion, Filler, Flood, Furnace, Limbo, Meteors, Touchdown, Scanner, Split, Stacker, and Vanilla. Three game modes: Pop, Mix, Chrono. Tetris Pop to be released worldwide for mobile devices. Expected Winter 2008.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Party">Tetris Party Deluxe</a></td>
+             <td>2010</td>
+             <td>Wii, Nintendo DS</td>
+             <td>Tetris Online / Majesco / Hudson Soft)</td>
+             <td>Sequel to Tetris Party. Online players can compete with Tetris Party players (i.e., Tetris Party for WiiWare + Tetris Party Deluxe for Wii / Tetris Party Live for DSiWare + Tetris Party Deluxe for DS).</td>
+</tr>
+
+<tr>
+             <td>Tetris Party Live</td>
+             <td>2010</td>
+             <td>Nintendo DSi</td>
+             <td>Tetris Online / Hudson Soft</td>
+             <td>A DSiWare title featuring several modes (Marathon, VS, Battle, and Duel Spaces). The focus of the game is multiplayer, where players can compete with other players around the world in real-time.</td>
+</tr>
+
+<tr>
+             <td>Tetris Battle</td>
+             <td>2010</td>
+             <td>facebook</td>
+             <td>Tetris Online</td>
+             <td>Similar in design to Tetris Friends, this game features competitive Tetris modes against friends or random people. Both direct "battles" and competitive 40-line sprints are included.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_(Electronic_Arts)">Tetris (EA Games)</a></td>
+             <td>2011</td>
+             <td>PlayStation 3, PSP</td>
+             <td>Electronic Arts</td>
+             <td>Features over 10 modalities, including Original, Gravity and Laser. It's also possible to play a bonus modality named "Variant", what includes some modified variants of these modalities. It also includes new soundtracks. Available for download in the PlayStation Network as a Mini. The PS3 version features exclusive Power Ups, Shared Mode, and Team Battle.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_(Electronic_Arts)">Tetris (EA Mobile)</a></td>
+             <td>2011</td>
+             <td>iOS, Android, Windows Phone, Blackberry</td>
+             <td>Electronic Arts</td>
+             <td>Features two modalities of gameplay: the classic Marathon mode and a new mode named "Magic", what features a new gameplay style and over new 20 levels. It also includes new soundtracks. In fall 2011 the game was removed from the iOS and Android app stores. However, the Android version can actually be purchased on the Amazon Appstore.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris:_Axis">Tetris Axis</a></td>
+             <td>2011</td>
+             <td>Nintendo 3DS</td>
+             <td>Nintendo</td>
+             <td>Published in October 2, 2011.It featured modes that used the 3DS's AR card functionality.</td>
+</tr>
+
+<tr>
+             <td>Tetris Stars</td>
+             <td>2011</td>
+             <td>Facebook</td>
+             <td>Tetris Online</td>
+             <td>Free-to-play, this casual arcade "digging" style game features a social leaderboard with friends, mouse-based controls, and power up items.</td>
+</tr>
+
+<tr>
+             <td>Tetris Blitz</td>
+             <td>2013</td>
+             <td>iOS, Android, Windows Phone, Microsoft Windows</td>
+             <td>Electronic Arts</td>
+             <td>Each game completes in two minutes, Features exclusive Power Up of the Week, Bonus Blitz minigame, and online leaderboards.</td>
+</tr>
+
+<tr>
+             <td>Tetris</td>
+             <td>2013</td>
+             <td>iOS, Android, Windows Phone</td>
+             <td>Electronic Arts</td>
+             <td>Features two modalities: the classic Marathon mode and a new mode named "Galaxy", what features a new gameplay style and over new 50 levels. It also includes new soundtracks and the classic 8-bit theme from the original Tetris game. Not to be confused with the 2011 game.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Puyo_Puyo_Tetris">Puyo Puyo Tetris</a></td>
+             <td>2014</td>
+             <td>Nintendo 3DS, Wii U, PlayStation 3, PlayStation Vita, PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows</td>
+             <td>Sega</td>
+             <td>Tetris versus Puyo Puyo. The game features modes that allow for playing standalone Tetris, standalone Puyo Puyo, and a Fusion mode that combines the two.</td>
+</tr>
+
+<tr>
+             <td>Tetris</td>
+             <td>2014</td>
+             <td>Amazon Fire TV</td>
+             <td>Tetris Online</td>
+             <td>Featuring 3 game modes: Marathon, Sprint, or Ultra. Also has over 40 different achievements to earn along the way, as well as global leaderboards to compare a player's progress against other GameCircle participants.</td>
+</tr>
+
+<tr>
+             <td>Tetris Battle:Fusion</td>
+             <td>2014</td>
+             <td>Amazon Fire TV, Ouya</td>
+             <td>Tetris Online</td>
+             <td>A game based on Tetris Battle, the hugely popular multiplayer game on Facebook that has been played over 60 million times, this game introduces an all-new interactive adventure where players can battle their way through a series of challenging opponents and goals to become a Tetris Master, where they have to collect special Amulets that can be used to give them an added boost as they progress their way to victory. Over 50 Amulets can be collected.</td>
+</tr>
+
+<tr>
+             <td><a href="https://en.wikipedia.org/wiki/Tetris_Ultimate">Tetris Ultimate</a></td>
+             <td>2014</td>
+             <td>Nintendo 3DS, PlayStation Vita, PlayStation 4, Xbox One, Microsoft Windows</td>
+             <td>Ubisoft</td>
+             <td>To coincide with the franchises' 30th Anniversary and in partnership with The Tetris Company and SoMa Play.</td>
+</tr>
+</table> 
 	</div>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
