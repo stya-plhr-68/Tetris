@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>STYA Tetris</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="Help.css">
+	<link rel="stylesheet" type="text/css" href="Tetris.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+		<a class="navbar-brand" href="#" onclick="gameClicked()">
+			<img src="logo.png" width="24" height="24" alt="">
+		</a>
+		<a class="navbar-brand" href="#" onclick="gameClicked()">TETRIS</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="#" onclick="gameClicked()">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Forum</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Options</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Useful links</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" onclick="helpClicked()">Help</a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+
+	<div id="gamepage">
+		<h3 class="text-center">TETRIS</h3>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					O
+				</div>
+				<div class="col">
+					<div class="container-fluid gameboard">
+						<div class="row invisible">
+							<div class="col emptyblock" id="0000"></div>
+							<div class="col emptyblock" id="0001"></div>
+							<div class="col emptyblock" id="0002"></div>
+							<div class="col emptyblock" id="0003"></div>
+							<div class="col emptyblock" id="0004"></div>
+							<div class="col emptyblock" id="0005"></div>
+							<div class="col emptyblock" id="0006"></div>
+							<div class="col emptyblock" id="0007"></div>
+							<div class="col emptyblock" id="0008"></div>
+							<div class="col emptyblock" id="0009"></div>
+						</div>
+						<div class="row invisible">
+							<div class="col emptyblock" id="0100"></div>
+							<div class="col emptyblock" id="0101"></div>
+							<div class="col emptyblock" id="0102"></div>
+							<div class="col emptyblock" id="0103"></div>
+							<div class="col emptyblock" id="0104"></div>
+							<div class="col emptyblock" id="0105"></div>
+							<div class="col emptyblock" id="0106"></div>
+							<div class="col emptyblock" id="0107"></div>
+							<div class="col emptyblock" id="0108"></div>
+							<div class="col emptyblock" id="0109"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0200"></div>
+							<div class="col emptyblock" id="0201"></div>
+							<div class="col emptyblock" id="0202"></div>
+							<div class="col emptyblock" id="0203"></div>
+							<div class="col emptyblock" id="0204"></div>
+							<div class="col emptyblock" id="0205"></div>
+							<div class="col emptyblock" id="0206"></div>
+							<div class="col emptyblock" id="0207"></div>
+							<div class="col emptyblock" id="0208"></div>
+							<div class="col emptyblock" id="0209"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0300"></div>
+							<div class="col emptyblock" id="0301"></div>
+							<div class="col emptyblock" id="0302"></div>
+							<div class="col emptyblock" id="0303"></div>
+							<div class="col emptyblock" id="0304"></div>
+							<div class="col emptyblock" id="0305"></div>
+							<div class="col emptyblock" id="0306"></div>
+							<div class="col emptyblock" id="0307"></div>
+							<div class="col emptyblock" id="0308"></div>
+							<div class="col emptyblock" id="0309"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0400"></div>
+							<div class="col emptyblock" id="0401"></div>
+							<div class="col emptyblock" id="0402"></div>
+							<div class="col emptyblock" id="0403"></div>
+							<div class="col emptyblock" id="0404"></div>
+							<div class="col emptyblock" id="0405"></div>
+							<div class="col emptyblock" id="0406"></div>
+							<div class="col emptyblock" id="0407"></div>
+							<div class="col emptyblock" id="0408"></div>
+							<div class="col emptyblock" id="0409"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0500"></div>
+							<div class="col emptyblock" id="0501"></div>
+							<div class="col emptyblock" id="0502"></div>
+							<div class="col emptyblock" id="0503"></div>
+							<div class="col emptyblock" id="0504"></div>
+							<div class="col emptyblock" id="0505"></div>
+							<div class="col emptyblock" id="0506"></div>
+							<div class="col emptyblock" id="0507"></div>
+							<div class="col emptyblock" id="0508"></div>
+							<div class="col emptyblock" id="0509"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0600"></div>
+							<div class="col emptyblock" id="0601"></div>
+							<div class="col emptyblock" id="0602"></div>
+							<div class="col emptyblock" id="0603"></div>
+							<div class="col emptyblock" id="0604"></div>
+							<div class="col emptyblock" id="0605"></div>
+							<div class="col emptyblock" id="0606"></div>
+							<div class="col emptyblock" id="0607"></div>
+							<div class="col emptyblock" id="0608"></div>
+							<div class="col emptyblock" id="0609"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0700"></div>
+							<div class="col emptyblock" id="0701"></div>
+							<div class="col emptyblock" id="0702"></div>
+							<div class="col emptyblock" id="0703"></div>
+							<div class="col emptyblock" id="0704"></div>
+							<div class="col emptyblock" id="0705"></div>
+							<div class="col emptyblock" id="0706"></div>
+							<div class="col emptyblock" id="0707"></div>
+							<div class="col emptyblock" id="0708"></div>
+							<div class="col emptyblock" id="0709"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0800"></div>
+							<div class="col emptyblock" id="0801"></div>
+							<div class="col emptyblock" id="0802"></div>
+							<div class="col emptyblock" id="0803"></div>
+							<div class="col emptyblock" id="0804"></div>
+							<div class="col emptyblock" id="0805"></div>
+							<div class="col emptyblock" id="0806"></div>
+							<div class="col emptyblock" id="0807"></div>
+							<div class="col emptyblock" id="0808"></div>
+							<div class="col emptyblock" id="0809"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="0900"></div>
+							<div class="col emptyblock" id="0901"></div>
+							<div class="col emptyblock" id="0902"></div>
+							<div class="col emptyblock" id="0903"></div>
+							<div class="col emptyblock" id="0904"></div>
+							<div class="col emptyblock" id="0905"></div>
+							<div class="col emptyblock" id="0906"></div>
+							<div class="col emptyblock" id="0907"></div>
+							<div class="col emptyblock" id="0908"></div>
+							<div class="col emptyblock" id="0909"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1000"></div>
+							<div class="col emptyblock" id="1001"></div>
+							<div class="col emptyblock" id="1002"></div>
+							<div class="col emptyblock" id="1003"></div>
+							<div class="col emptyblock" id="1004"></div>
+							<div class="col emptyblock" id="1005"></div>
+							<div class="col emptyblock" id="1006"></div>
+							<div class="col emptyblock" id="1007"></div>
+							<div class="col emptyblock" id="1008"></div>
+							<div class="col emptyblock" id="1009"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1100"></div>
+							<div class="col emptyblock" id="1101"></div>
+							<div class="col emptyblock" id="1102"></div>
+							<div class="col emptyblock" id="1103"></div>
+							<div class="col emptyblock" id="1104"></div>
+							<div class="col emptyblock" id="1105"></div>
+							<div class="col emptyblock" id="1106"></div>
+							<div class="col emptyblock" id="1107"></div>
+							<div class="col emptyblock" id="1108"></div>
+							<div class="col emptyblock" id="1109"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1200"></div>
+							<div class="col emptyblock" id="1201"></div>
+							<div class="col emptyblock" id="1202"></div>
+							<div class="col emptyblock" id="1203"></div>
+							<div class="col emptyblock" id="1204"></div>
+							<div class="col emptyblock" id="1205"></div>
+							<div class="col emptyblock" id="1206"></div>
+							<div class="col emptyblock" id="1207"></div>
+							<div class="col emptyblock" id="1208"></div>
+							<div class="col emptyblock" id="1209"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1300"></div>
+							<div class="col emptyblock" id="1301"></div>
+							<div class="col emptyblock" id="1302"></div>
+							<div class="col emptyblock" id="1303"></div>
+							<div class="col emptyblock" id="1304"></div>
+							<div class="col emptyblock" id="1305"></div>
+							<div class="col emptyblock" id="1306"></div>
+							<div class="col emptyblock" id="1307"></div>
+							<div class="col emptyblock" id="1308"></div>
+							<div class="col emptyblock" id="1309"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1400"></div>
+							<div class="col emptyblock" id="1401"></div>
+							<div class="col emptyblock" id="1402"></div>
+							<div class="col emptyblock" id="1403"></div>
+							<div class="col emptyblock" id="1404"></div>
+							<div class="col emptyblock" id="1405"></div>
+							<div class="col emptyblock" id="1406"></div>
+							<div class="col emptyblock" id="1407"></div>
+							<div class="col emptyblock" id="1408"></div>
+							<div class="col emptyblock" id="1409"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1500"></div>
+							<div class="col emptyblock" id="1501"></div>
+							<div class="col emptyblock" id="1502"></div>
+							<div class="col emptyblock" id="1503"></div>
+							<div class="col emptyblock" id="1504"></div>
+							<div class="col emptyblock" id="1505"></div>
+							<div class="col emptyblock" id="1506"></div>
+							<div class="col emptyblock" id="1507"></div>
+							<div class="col emptyblock" id="1508"></div>
+							<div class="col emptyblock" id="1509"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1600"></div>
+							<div class="col emptyblock" id="1601"></div>
+							<div class="col emptyblock" id="1602"></div>
+							<div class="col emptyblock" id="1603"></div>
+							<div class="col emptyblock" id="1604"></div>
+							<div class="col emptyblock" id="1605"></div>
+							<div class="col emptyblock" id="1606"></div>
+							<div class="col emptyblock" id="1607"></div>
+							<div class="col emptyblock" id="1608"></div>
+							<div class="col emptyblock" id="1609"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1700"></div>
+							<div class="col emptyblock" id="1701"></div>
+							<div class="col emptyblock" id="1702"></div>
+							<div class="col emptyblock" id="1703"></div>
+							<div class="col emptyblock" id="1704"></div>
+							<div class="col emptyblock" id="1705"></div>
+							<div class="col emptyblock" id="1706"></div>
+							<div class="col emptyblock" id="1707"></div>
+							<div class="col emptyblock" id="1708"></div>
+							<div class="col emptyblock" id="1709"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1800"></div>
+							<div class="col emptyblock" id="1801"></div>
+							<div class="col emptyblock" id="1802"></div>
+							<div class="col emptyblock" id="1803"></div>
+							<div class="col emptyblock" id="1804"></div>
+							<div class="col emptyblock" id="1805"></div>
+							<div class="col emptyblock" id="1806"></div>
+							<div class="col emptyblock" id="1807"></div>
+							<div class="col emptyblock" id="1808"></div>
+							<div class="col emptyblock" id="1809"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="1900"></div>
+							<div class="col emptyblock" id="1901"></div>
+							<div class="col emptyblock" id="1902"></div>
+							<div class="col emptyblock" id="1903"></div>
+							<div class="col emptyblock" id="1904"></div>
+							<div class="col emptyblock" id="1905"></div>
+							<div class="col emptyblock" id="1906"></div>
+							<div class="col emptyblock" id="1907"></div>
+							<div class="col emptyblock" id="1908"></div>
+							<div class="col emptyblock" id="1909"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="2000"></div>
+							<div class="col emptyblock" id="2001"></div>
+							<div class="col emptyblock" id="2002"></div>
+							<div class="col emptyblock" id="2003"></div>
+							<div class="col emptyblock" id="2004"></div>
+							<div class="col emptyblock" id="2005"></div>
+							<div class="col emptyblock" id="2006"></div>
+							<div class="col emptyblock" id="2007"></div>
+							<div class="col emptyblock" id="2008"></div>
+							<div class="col emptyblock" id="2009"></div>
+						</div>
+						<div class="row">
+							<div class="col emptyblock" id="2100"></div>
+							<div class="col emptyblock" id="2101"></div>
+							<div class="col emptyblock" id="2102"></div>
+							<div class="col emptyblock" id="2103"></div>
+							<div class="col emptyblock" id="2104"></div>
+							<div class="col emptyblock" id="2105"></div>
+							<div class="col emptyblock" id="2106"></div>
+							<div class="col emptyblock" id="2107"></div>
+							<div class="col emptyblock" id="2108"></div>
+							<div class="col emptyblock" id="2109"></div>
+							<audio id="myAudio" controls loop class= "audio" ><source src="Original Tetris theme (Tetris Soundtrack)-0-83.1.ogg" type="audio/ogg"><source src="Original Tetris theme (Tetris Soundtrack)-0-83.1.mp3" type="audio/mpeg"></audio>
+							<audio id="myOtherAudio" autoplay loop class= "audio> <source src="Tetris theme music - String Quaret-6-66.ogg" type="audio/ogg"> <source src="Tetris theme music - String Quaret-6-66.mp3" type="audio/mpeg"></audio>
+							<button class="audiobtn"><i class="fa fa-volume-up"></i></button>
+							<button class="audiobtn"><i class="fa fa-volume-off"></i></button>
+						</div>
+                                </div>
+				</div>
+				<div class="col">
+				    <div class="ib messageboard">
+ 		 		    <p class="mbTitle">Time remaining:</p>
+			            <p class="mbData" id="timeData">0 seconds</p>
+				    <p class="mbTitle">Lines smashed:<span class="mbData" id="linesData">0</span></p>
+				    <p class="mbTitle">Score:<span class="mbData" id="scoreData">0</span> <span class="mbData">points</span></p>
+				</div>
+ 				</div>
+			</div>
+		</div>
+		<button class="btn btn-info animbutton" onclick="testclick()">Click me</button>
+		<button id="startbtn" class="btn btn-info animbutton"  onclick="startGame()">Start</button>
+		<button class="btn btn-info animbutton" onclick="testclick()">Pause</button>
+                </div>
+
+
+<div id="helppage" class="helpbody">
+		<div class="helpcontent">
+			<h1>Instructions</h1>
+			<p>
+				<b>
+				Tetris is played on a 10 by 20 grid called the Matrix. <br/>Shapes called Tetriminos fall from the top of the<br/> Matrix and come to rest at the bottom.<br/>
+				Only one Tetrimino falls at a time. <br/>At first the Tetriminos fall rather slowly;<br/> as the game progresses they will fall faster and faster.<br/>
+				Tip: There are seven shapes of Tetriminos, each made up of four small squares called Minos. Check out the diagram below for the appearance of each Tetrimino.
+				</b>
+			</p>
+			<h1>Moving the Tetriminos</h1>
+			<p>
+			<b>Using the arrow keys, you can adjust where and how the Tetriminos fall. By pressing the LEFT and RIGHT Arrow keys, you can slide the falling Tetrimino<br/> 
+			from side to side. You can’t slide a Tetrimino past the edge of the Matrix. By pressing the UP Arrow key, you can rotate the Tetrimino 90 degrees clockwise.<br/> 
+			You can move the Tetriminos even after they land at the bottom of the Matrix briefly. The Tetrimino will Lock Down as soon as you stop trying to move it.<br/> 
+			At that point, the next Tetrimino will begin to fall.<br/>
+			Tip: At slower speeds it won’t matter much which way you turn the Tetrimino. But when the action heats up, the precious time it takes to make<br/> 
+			three rotations clockwise or once counterclockwise will make a huge difference.</b></p>
+			<h1>Hard Drop and Soft Drop</h1>
+			<p>
+			<b>As your game improves and you begin to pay attention to the Tetriminos in your Next Queue, you might find yourself getting a little impatient waiting for<br/> 
+			the piece to fall. You have two options to speed up the game—the Soft Drop and the Hard Drop—and they’re both really easy to do.<br/>
+			The Soft Drop is performed by pressing the DOWN Arrow key—the Tetrimino will fall much faster than usual while you hold down the key, but as soon as you let<br/>
+			go the piece will resume its normal pace. You retain complete control over the piece while doing a Soft Drop.<br/>
+			The Hard Drop is much less forgiving—hit the Space Bar to cause the Tetrimino to fall straight down, forgoing any further opportunity to move it.<br/>
+			The Hard Drop is great for timed games where your goal is to get pieces into position as quickly as possible. Pay attention to the Ghost Piece to help you see<br/> 
+			where the Tetrimino will fall, and don’t press the space bar until you’re ready!</b></p>
+			<h1>Clearing Lines</h1>
+			<p>
+			<b>The primary way to score points in Tetris is to clear lines by manipulating the pieces so that they fill horizontal row within the Matrix. As the pieces fall,</br>
+			 your goal is to move and spin them so that they line up evenly at the bottom of the Matrix. To clear a line, every square of the row has to be filled.<br/>
+			Tip: Fill in multiple lines at once for bonus points. Drop Tetriminos so that there is a gap at least two squares deep, then drop a J-Tetrimino or L-Tetrimino to clear two lines at once, for example.</b></p>
+		</div>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<script src="Blocks.js" type="text/javascript"></script>
+	<script src="Game.js" type="text/javascript"></script>
+	<script src="GameRunner.js" type="text/javascript"></script>
+	<script src="Tetris.js" type="text/javascript"></script>
+	
+</body>
+
+</html>
