@@ -9,6 +9,10 @@
 	18%  {background-color:forestgreen;}
 	19%  {background-color:yellow;}
 	20%  {background-color:ivory;}
-	70% {background-color:white;}
-	
+	70% {background-color:white;}	
+}
+
+.destructedBlock {
+	animation-name: destruction;
+	animation-duration: 4s;
 }
