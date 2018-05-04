@@ -1,0 +1,14 @@
+@keyframes destruction {
+	0%   {background-color:ruby;}
+	5%  {background-color:red;}
+	7%  {background-color:blue;} 
+	10%  {background-color:yellow;}
+	14%  {background-color:green;}
+	16%  {background-color:red;}
+	17%  {background-color:orange;}
+	18%  {background-color:forestgreen;}
+	19%  {background-color:yellow;}
+	20%  {background-color:ivory;}
+	70% {background-color:white;}
+	
+}
